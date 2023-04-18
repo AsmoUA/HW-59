@@ -1,0 +1,58 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "My Shop API",
+    "description": "API documentation for My Shop",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8000"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Home page",
+        "description": "Returns the static home page",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/product": {
+      "get": {
+        "summary": "Product page",
+        "description": "Returns the product page with the given title and price",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "title",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The product title"
+          },
+          {
+            "in": "query",
+            "name": "price",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            },
+            "required": true,
+            "description": "The product price"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    }
+  }
+}
